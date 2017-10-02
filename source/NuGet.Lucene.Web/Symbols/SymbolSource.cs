@@ -16,7 +16,7 @@ namespace NuGet.Lucene.Web.Symbols
 
         public string SymbolsPath { get; set; }
         public SymbolTools SymbolTools { get; set; }
-        
+
         public bool Enabled
         {
             get { return SymbolTools.ToolsAvailable; }
@@ -124,6 +124,9 @@ namespace NuGet.Lucene.Web.Symbols
             {
                 foreach (var file in files)
                 {
+                    if (!string.Equals(Path.GetExtension(file.Path), ".pdb", StringComparison.OrdinalIgnoreCase))
+                        continue;
+
                     var filePath = Path.Combine(tempFolder.Path, file.Path);
                     var fileDir = Path.GetDirectoryName(filePath);
 
