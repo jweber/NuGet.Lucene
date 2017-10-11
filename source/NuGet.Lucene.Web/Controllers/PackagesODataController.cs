@@ -117,11 +117,11 @@ namespace NuGet.Lucene.Web.Controllers
 
             options = SimplifyOrderingClause(options);
 
-            if (!string.IsNullOrWhiteSpace(targetFramework))
-            {
-                targetFrameworks = targetFramework.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Distinct();
-                options = RemoveFilter(options);
-            }
+//            if (!string.IsNullOrWhiteSpace(targetFramework))
+//            {
+//                targetFrameworks = targetFramework.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries).Distinct();
+//                options = RemoveFilter(options);
+//            }
 
             var searchQuery = Repository.Search(searchTerm, targetFrameworks, includePrerelease);
 
